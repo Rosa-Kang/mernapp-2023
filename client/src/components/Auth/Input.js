@@ -8,7 +8,7 @@ const Input = ({name, label, half, autoFocus, handleChange, handleShowPassword, 
   return (
     <Grid xs={12} sm={half ? 6 : 12}>
       <TextField
-        name={name} variant="outlined" label={label} onChange={handleChange} required fullWidth autoFocus={autoFocus} type={type} xs={6} inputProps={name === 'password' && {
+        name={name} variant="outlined" label={label} onChange={handleChange} required fullWidth autoFocus={autoFocus} type={type} xs={6} inputProps={name === 'password' ? {
           andAdornment: (
             <InputAdornment position="end">
               <IconButton onClick={handleShowPassword}>
@@ -16,7 +16,7 @@ const Input = ({name, label, half, autoFocus, handleChange, handleShowPassword, 
               </IconButton>
             </InputAdornment>
           )
-        }} />
+        }: null } />
                   </Grid>
   )
 }
