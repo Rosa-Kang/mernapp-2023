@@ -10,8 +10,9 @@ import Icon from './icon';
 import { AUTH } from '../../constants/actionTypes';
 import useStyles from './styles';
 import Input from './Input';
+import {signin, signup} from '../../actions/auth'
 
-const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
+const initialState = {firstName: '', lastName:'', email:'', password:'', conformPassword:''}
 
 const SignUp = () => {
   const [form, setForm] = useState(initialState);
@@ -33,9 +34,9 @@ const SignUp = () => {
     e.preventDefault();
 
     if (isSignup) {
-      // dispatch(signup(form, history));
+      dispatch(signup(form, navigate));
     } else {
-      // dispatch(signin(form, history));
+      dispatch(signin(form, navigate));
     }
   };
 
@@ -46,7 +47,7 @@ const SignUp = () => {
     try {
       dispatch({ type: AUTH, data: { result, token } });
        
-      navigate('/home');
+      navigate('/');
     } catch (error) {
       console.log(error);
     }
